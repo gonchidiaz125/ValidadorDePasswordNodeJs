@@ -1,0 +1,4 @@
+# Archivos generados durante el desarrollo
+node_modules/
+npm-debug.log
+yarn-error.log
