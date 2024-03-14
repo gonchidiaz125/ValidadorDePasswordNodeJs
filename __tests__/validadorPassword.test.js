@@ -39,3 +39,29 @@ describe('Pruebas para ValidarLargoMinimo', () => {
     expect(resultado).toBe(false);
   });
 })
+
+describe('Pruebas para ValidarLargoMaximo', () => {
+  test('ValidarLargoMaximo debe retornar TRUE para una contraseña con longuitud correcta (menor a 20)',() =>{
+    const resultado = ValidarLargoMaximo('0123456789');
+    expect(resultado).toBe(true);
+  })
+  test('ValidarLargoMaximo debe retornar TRUE para una contraseña con longuitud igual (a 20)',() =>{
+    const resultado = ValidarLargoMaximo('01234567890123456789');
+    expect(resultado).toBe(true);
+  })
+  test('ValidarLargoMaximo debe retornar FALSE para una contraseña con longuitud incorrecta (mayor a 20)',() =>{
+    const resultado = ValidarLargoMaximo('012345678901234567890');
+    expect(resultado).toBe(false);
+  })
+})
+
+describe('Pruebas para ValidarDebeContenerUnNumero',() =>{
+  test('ValidarDebeContenerUnNumero debe retornar TRUE para una contraseña que si contiene un caracter numerico',() =>{
+    const resultado = ValidarDebeContenerAlgunNumero('1234');
+    expect(resultado).toBe(true);
+  })
+  test('ValidarDebeContenerUnNumero debe retornar FALSE para una contraseña que no contiene un caracter numerico',() =>{
+    const resultado = ValidarDebeContenerAlgunNumero('HOLAa');
+    expect(resultado).toBe(false);
+  })
+})
