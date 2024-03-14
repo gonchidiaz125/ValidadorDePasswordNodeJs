@@ -12,22 +12,15 @@ app.use(cors());
 
 app.post('/ValidarPassword', (req, res) => {
   const { passwordActual, passwordNuevo, passwordNuevoRepetido } = req.body;
-
+  
   console.log(JSON.stringify(req.body))
 
   // Lógica para validar los passwords
   if (passwordActual && passwordNuevo && passwordNuevoRepetido) {
-    if (passwordNuevo === passwordNuevoRepetido) {
-      
-      // Aquí puedes realizar cualquier validación adicional según tus necesidades      
+    if (passwordNuevo === passwordNuevoRepetido) {            
       var resultadoValidacion = passwordValidator.ValidarPassword(passwordNuevo);
 
-      res.status(200).json(resultadoValidacion);
-
-      // if (resultadoValidacion.Valida) {
-      //   // res.status(200).json({ mensaje: 'Passwords válidos' });
-      //   res.status(200).json(resultadoValidacion);
-      // }      
+      res.status(200).json(resultadoValidacion);      
     } else {
       res.status(400).json({ error: 'El nuevo password no coincide con la repetición' });
     }
